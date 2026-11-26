@@ -1,7 +1,7 @@
 # Digital Traffic Light Controller (Verilog HDL)
 
 **Open Hardware Nexus (OHN) – Paired GitHub Assignment**
-Authors: *Student A* (@username) and *Student B* (@username)
+Authors: Madandola James and 
 
 ## 1. Project overview and objectives
 A Finite State Machine (FSM) based traffic light controller for a two-road intersection (Road A and Road B), written in Verilog and verified with a self-checking testbench. Objectives: research FSMs and counters, design and implement the controller, verify it in simulation, document it, and collaborate with GitHub (branches, issues, pull requests).
@@ -40,7 +40,7 @@ Specification → identify states → state diagram & table → timing calculati
 | S3 B_GREEN | 0 / 1 | S3 / S4 | Red | Green |
 | S4 B_YELLOW | 0 / 1 | S4 / S1 | Red | Yellow |
 
-`rst = 1` forces S1 from any state. Full table in [docs/02_design.md](docs/02_design.md).
+`rst = 1` forces S1 from any state. Full table in [research/Task-2-system-design.md](research/Task-2-system-design.md).
 
 ## 6. Clock and timing mechanism
 `cycles = seconds × CLK_FREQ`. A 32-bit counter increments each rising clock edge; when `count == cycles − 1` the FSM advances and the counter clears. With a 50 MHz clock, 10 s = 500,000,000 cycles and 3 s = 150,000,000 cycles. In simulation `CLK_FREQ = 10`, so 1 s = 10 clock cycles = 100 ns.
@@ -66,7 +66,7 @@ Expected console result: `RESULT: ALL TESTS PASSED`.
 
 **Results:** *(paste your console output and waveform screenshots here – save images in `sim/`)*
 
-Expected behaviour for reference: ![Expected timing](sim/expected_timing_diagram.png)
+Expected behaviour for reference: ![timing diagram](simulation/waveform.png)
 
 ## 9. Challenges and how they were addressed
 *(Edit with your own experience. Suggestions:)*
@@ -76,7 +76,7 @@ Expected behaviour for reference: ![Expected timing](sim/expected_timing_diagram
 - Merge conflicts / branch workflow → small branches and PR reviews.
 
 ## 10. References and learning resources
-See [docs/01_research.md](docs/01_research.md): HDLBits, Nandland, EDA Playground, Harris & Harris, Cummings (SNUG 2000), IEEE 1364.
+See [research/Task-1.md](research/Task-1.md): HDLBits, Nandland, EDA Playground, Harris & Harris, Cummings (SNUG 2000), IEEE 1364.
 
 ## 11. Repository structure and collaboration
 ```
