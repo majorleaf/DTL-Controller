@@ -76,12 +76,10 @@ Expected behaviour for reference: ![timing diagram](simulation/waveform.png)
 - Merge conflicts / branch workflow → small branches and PR reviews.
 
 ## 10. References and learning resources
-See [research/Task-1.md](research/Task-1.md): HDLBits, Nandland, EDA Playground, Harris & Harris, Cummings (SNUG 2000), IEEE 1364.
+See [research/Task-1.md](research/Task-1.md): HDLBits, EDA Playground
 
 ## 11. Repository structure and collaboration
 ```
-src/   RTL            tb/   testbench
-docs/  research, design, state diagram, GitHub workflow
-sim/   waveforms and results
+research/  research, design, state diagram, 
+simuations/   waveforms and results
 ```
-Collaboration plan (issues, branches, commits, PRs): [docs/03_github_workflow.md](docs/03_github_workflow.md).
