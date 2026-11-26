@@ -1,0 +1,29 @@
+[2026-11-26 16:22:50 UTC] iverilog '-Wall' '-g2012' design.sv testbench.sv  && unbuffer vvp a.out  
+VCD info: dumpfile traffic_light.vcd opened for output.
+[20000] OK   : reset -> State 1 (A Green, B Red)
+[1020000] OK   : state 1 lasted 1000 ns (10 s)
+[1320000] OK   : state 2 lasted 300 ns (3 s)
+[2320000] OK   : state 3 lasted 1000 ns (10 s)
+[2620000] OK   : state 4 lasted 300 ns (3 s)
+[2620000] ---- full cycle 1 done, back in State 1 ----
+[3620000] OK   : state 1 lasted 1000 ns (10 s)
+[3920000] OK   : state 2 lasted 300 ns (3 s)
+[4920000] OK   : state 3 lasted 1000 ns (10 s)
+[5220000] OK   : state 4 lasted 300 ns (3 s)
+[5220000] ---- full cycle 2 done, back in State 1 ----
+[6220000] OK   : state 1 lasted 1000 ns (10 s)
+[6520000] OK   : state 2 lasted 300 ns (3 s)
+[6840000] OK   : mid-sequence reset -> State 1
+[7840000] OK   : state 1 lasted 1000 ns (10 s)
+[8140000] OK   : state 2 lasted 300 ns (3 s)
+[9140000] OK   : state 3 lasted 1000 ns (10 s)
+[9440000] OK   : state 4 lasted 300 ns (3 s)
+[9440000] ---- full cycle 3 done, back in State 1 ----
+==================================================
+ RESULT: ALL TESTS PASSED
+==================================================
+testbench.sv:171: $finish called at 9540000 (1ps)
+Finding VCD file...
+./traffic_light.vcd
+[2026-11-26 16:22:51 UTC] Opening EPWave...
+Done
