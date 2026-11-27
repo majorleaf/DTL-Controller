@@ -1,7 +1,7 @@
 # Digital Traffic Light Controller (Verilog HDL)
 
 **Open Hardware Nexus (OHN) – Paired GitHub Assignment**
-Authors: Madandola James and 
+Authors: Madandola James and Bamidele ayomide
 
 ## 1. Project overview and objectives
 A Finite State Machine (FSM) based traffic light controller for a two-road intersection (Road A and Road B), written in Verilog and verified with a self-checking testbench. Objectives: research FSMs and counters, design and implement the controller, verify it in simulation, document it, and collaborate with GitHub (branches, issues, pull requests).
@@ -62,14 +62,13 @@ make wave       # open waveform in GTKWave
 ```
 The testbench checks: correct sequence, exact duration of each state, never both Green, one colour per road, return to State 1 after a cycle, and mid-sequence reset.
 
-Expected console result: `RESULT: ALL TESTS PASSED`.
+console result: `RESULT: ALL TESTS PASSED`.
 
 **Results:** *(paste your console output and waveform screenshots here – save images in `sim/`)*
 
-Expected behaviour for reference: ![timing diagram](simulation/waveform.png)
+ behaviour for reference: ![timing diagram](simulation/waveform.png)
 
-## 9. Challenges and how they were addressed
-*(Edit with your own experience. Suggestions:)*
+## 9. Challenges and how they 
 - Simulating 10 s on a 50 MHz clock is far too long → made the clock frequency a parameter and simulate with `CLK_FREQ = 10`.
 - Off-by-one in the counter → compare with `duration − 1` so each state lasts exactly `duration` cycles.
 - Testbench race/glitches when sampling outputs → sample on the falling clock edge.
