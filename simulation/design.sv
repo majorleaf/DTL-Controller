@@ -33,11 +33,11 @@ module traffic_light_controller #(
     output reg        b_green
 );
 
-    // ---------------- Timing constants (in clock cycles) ----------------------
+    //clock cycles 
     localparam [31:0] G_CYCLES = G_TIME * CLK_FREQ;
     localparam [31:0] Y_CYCLES = Y_TIME * CLK_FREQ;
 
-    // ---------------- State encoding -----------------------------------------
+    
     localparam [1:0] S_A_GREEN  = 2'b00,   // State 1
                      S_A_YELLOW = 2'b01,   // State 2
                      S_B_GREEN  = 2'b10,   // State 3
@@ -47,7 +47,7 @@ module traffic_light_controller #(
     reg [31:0] count;                      // clock-cycle counter
     reg [31:0] state_cycles;               // duration of the current state
 
-    // ---------------- Duration of the current state --------------------------
+
     always @(*) begin
         case (state)
             S_A_GREEN,
@@ -56,34 +56,29 @@ module traffic_light_controller #(
         endcase
     end
 
-    // The current state has finished when the counter reaches its last cycle
     wire time_up = (count == state_cycles - 32'd1);
 
-    // ---------------- Sequential block: state register + counter -------------
+    
     always @(posedge clk) begin
         if (rst) begin
             state <= S_A_GREEN;
-            count <= 32'd0;
+            count j<= 32'd0;
         end else if (time_up) begin
             state <= next_state;
             count <= 32'd0;
         end else begin
             count <= count + 32'd1;
         end
-    end
-
-    // ---------------- Next-state logic (combinational) -----------------------
+  
     always @(*) begin
         case (state)
             S_A_GREEN  : next_state = S_A_YELLOW;
             S_A_YELLOW : next_state = S_B_GREEN;
             S_B_GREEN  : next_state = S_B_YELLOW;
             S_B_YELLOW : next_state = S_A_GREEN;
-            default    : next_state = S_A_GREEN;   // safe recovery
+            default    : next_state = S_A_GREEN;  
         endcase
     end
-
-    // ---------------- Output logic (Moore: depends on state only) ------------
     always @(*) begin
         // safe defaults: both roads RED
         a_red = 1'b1; a_yellow = 1'b0; a_green = 1'b0;
